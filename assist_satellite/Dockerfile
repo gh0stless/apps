@@ -57,3 +57,8 @@ COPY rootfs /
 
 HEALTHCHECK --start-period=10m \
     CMD pgrep -f linux_voice_assistant || exit 1
+    
+RUN chmod a+x \
+    /etc/s6-overlay/s6-rc.d/assist_satellite/run \
+    /etc/s6-overlay/s6-rc.d/assist_satellite/finish \
+    /etc/s6-overlay/s6-rc.d/discovery/run
